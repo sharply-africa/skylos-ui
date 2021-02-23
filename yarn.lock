@@ -2497,6 +2497,18 @@
   dependencies:
     core-js "^3.0.1"
 
+"@storybook/preset-create-react-app@^3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@storybook/preset-create-react-app/-/preset-create-react-app-3.1.6.tgz#fdcc332343085d26fe50891be484c830921f2688"
+  integrity sha512-hH8g5bBqNVU1zl2K19fXazncaWX2eiOX+ZHN3RtfQioAgHtXH/S1TS92xJj7uxoU40GYjldRmv7+fhzJCyRxNg==
+  dependencies:
+    "@types/babel__core" "^7.1.7"
+    "@types/webpack" "^4.41.13"
+    babel-plugin-react-docgen "^4.1.0"
+    pnp-webpack-plugin "^1.6.4"
+    react-docgen-typescript-plugin "^0.6.2"
+    semver "^7.3.2"
+
 "@storybook/react@^6.1.19":
   version "6.1.19"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-6.1.19.tgz#cd3dd2c29a77c4264d6369d6f8d3c58ad34eab80"
@@ -3121,7 +3133,7 @@
     "@types/source-list-map" "*"
     source-map "^0.7.3"
 
-"@types/webpack@^4.41.8":
+"@types/webpack@^4.41.13", "@types/webpack@^4.41.8":
   version "4.41.26"
   resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.26.tgz#27a30d7d531e16489f9c7607c747be6bc1a459ef"
   integrity sha512-7ZyTfxjCRwexh+EJFwRUM+CDB2XvgHl4vfuqf1ZKrgGvcS5BrNvPQqJh3tsZ0P6h6Aa1qClVHaJZszLPzpqHeA==
@@ -4206,7 +4218,7 @@ babel-plugin-polyfill-regenerator@^0.1.1:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.1.0"
 
-babel-plugin-react-docgen@^4.2.1:
+babel-plugin-react-docgen@^4.1.0, babel-plugin-react-docgen@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/babel-plugin-react-docgen/-/babel-plugin-react-docgen-4.2.1.tgz#7cc8e2f94e8dc057a06e953162f0810e4e72257b"
   integrity sha512-UQ0NmGHj/HAqi5Bew8WvNfCk8wSsmdgNd8ZdMjBCICtyCJCq9LiqgqvjCYe570/Wg7AQArSq1VQ60Dd/CHN7mQ==
@@ -11213,7 +11225,7 @@ pkg-up@3.1.0, pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
-pnp-webpack-plugin@1.6.4:
+pnp-webpack-plugin@1.6.4, pnp-webpack-plugin@^1.6.4:
   version "1.6.4"
   resolved "https://registry.yarnpkg.com/pnp-webpack-plugin/-/pnp-webpack-plugin-1.6.4.tgz#c9711ac4dc48a685dabafc86f8b6dd9f8df84149"
   integrity sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg==
@@ -13103,11 +13115,6 @@ rollup-plugin-delete@^2.0.0:
   integrity sha512-/VpLMtDy+8wwRlDANuYmDa9ss/knGsAgrDhM+tEwB1npHwNu4DYNmDfUL55csse/GHs9Q+SMT/rw9uiaZ3pnzA==
   dependencies:
     del "^5.1.0"
-
-rollup-plugin-peer-deps-external@^2.2.4:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-peer-deps-external/-/rollup-plugin-peer-deps-external-2.2.4.tgz#8a420bbfd6dccc30aeb68c9bf57011f2f109570d"
-  integrity sha512-AWdukIM1+k5JDdAqV/Cxd+nejvno2FVLVeZ74NKggm3Q5s9cbbcOgUPGdbxPi4BXu7xGaZ8HG12F+thImYu/0g==
 
 rollup-plugin-terser@^5.3.1:
   version "5.3.1"
