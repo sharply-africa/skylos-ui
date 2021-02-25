@@ -1,9 +1,11 @@
 import components from "./components";
 import foundations from "./foundations";
+import variants from "./variants";
 
 const theme = {
-  components,
+  ...components,
   ...foundations,
+  variants,
 };
 
 export * from "./utils";

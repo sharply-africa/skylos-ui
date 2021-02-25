@@ -2,7 +2,9 @@ export const colors = {
   background: "#F1FAF9",
   black: "#000000",
   current: "currentColor",
+  heading: "#2C2727",
   primary: "#6041E0",
+  text: "#757171",
   transparent: "transparent",
   white: "#ffffff",
 

@@ -11,6 +11,7 @@ export const typography = {
   lineHeights: {
     normal: "normal",
     none: 1,
+    default: 1.16,
     shorter: 1.25,
     short: 1.375,
     base: 1.5,
