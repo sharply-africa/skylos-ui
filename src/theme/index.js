@@ -6,4 +6,5 @@ const theme = {
   ...foundations,
 };
 
+export * from "./utils";
 export default theme;
