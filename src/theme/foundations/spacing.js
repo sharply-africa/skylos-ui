@@ -3,7 +3,7 @@ export const spacing = {
   0: "0",
   0.5: "0.2rem",
   1: "0.4rem",
-  1.5: "1.6rem",
+  1.5: "0.6rem",
   2: "0.8rem",
   2.5: "1.0rem",
   3: "1.2rem",
