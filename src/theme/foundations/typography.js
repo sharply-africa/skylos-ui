@@ -32,6 +32,7 @@ export const typography = {
     body: `Rubik, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
   },
   fontSizes: {
+    xxs: "1rem",
     xs: "1.2rem",
     sm: "1.4rem",
     md: "1.6rem",

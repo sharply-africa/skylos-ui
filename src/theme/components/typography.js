@@ -13,4 +13,11 @@ export const typography = {
     fontWeight: "normal",
     lineHeight: "default",
   },
+  errorText: {
+    color: "red.300",
+    fontFamily: "body",
+    fontSize: ["xs"],
+    fontWeight: "normal",
+    lineHeight: "default",
+  },
 };

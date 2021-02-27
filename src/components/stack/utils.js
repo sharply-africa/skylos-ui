@@ -36,7 +36,7 @@ export function mapResponsive(prop, mapper) {
   }
 
   if (isObject(prop)) {
-    return objectKeys(prop).reduce((result: Dict, key) => {
+    return objectKeys(prop).reduce((result, key) => {
       result[key] = mapper(prop[key]);
       return result;
     }, {});

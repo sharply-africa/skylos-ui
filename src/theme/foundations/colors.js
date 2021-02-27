@@ -9,6 +9,13 @@ export const colors = {
   transparent: "transparent",
   white: "#ffffff",
 
+  red: {
+    50: "#FFD4D4",
+    100: "#E47A7A",
+    200: "#EE1616",
+    300: "#DF1818",
+  },
+
   whiteAlpha: {
     50: "rgba(255, 255, 255, 0.04)",
     100: "rgba(255, 255, 255, 0.06)",
