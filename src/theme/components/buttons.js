@@ -26,4 +26,17 @@ export const buttons = {
     px: 0,
     py: 0,
   },
+  iconSquare: {
+    alignItems: "center",
+    background: "white",
+    borderRadius: "base",
+    height: 40,
+    justifyContent: "center",
+    px: 1,
+    py: 4,
+    width: 40,
+    " > svg": {
+      fill: "heading",
+    },
+  },
 };

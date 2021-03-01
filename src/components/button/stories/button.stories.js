@@ -3,7 +3,6 @@ import { Button } from "../button";
 
 export default {
   title: "Components/Base/Button",
-  component: Button,
   argTypes: {
     colorScheme: {
       control: "color",
