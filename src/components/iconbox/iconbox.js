@@ -8,7 +8,7 @@ const Wrapper = styled(Flex)`
   }
 `;
 
-const IconBox = forwardRef((props, ref) => {
+export const IconBox = forwardRef((props, ref) => {
   return (
     <Wrapper
       alignItems="center"
@@ -24,5 +24,3 @@ const IconBox = forwardRef((props, ref) => {
     />
   );
 });
-
-export default IconBox;
