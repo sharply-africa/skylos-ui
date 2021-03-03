@@ -19,6 +19,7 @@ export const Checkbox = forwardRef((props, ref) => {
     <Stack direction="row" spacing={2} ref={ref} {...props}>
       <Box
         __css={{
+          alignItems: !!subtitle ? "center" : "flex-start",
           backgroundColor: "white",
           borderRadius: "base",
           cursor: "pointer",
@@ -51,13 +52,23 @@ export const Checkbox = forwardRef((props, ref) => {
 
       <Stack spacing={1}>
         {title ? (
-          <Text fontSize="xs" color="heading" {...titleProps}>
+          <Text
+            fontSize="xs"
+            color="heading"
+            sx={{ userSelect: "none" }}
+            {...titleProps}
+          >
             {title}
           </Text>
         ) : null}
 
         {subtitle ? (
-          <Text fontSize="xxs" color="text" {...subtitleProps}>
+          <Text
+            fontSize="xxs"
+            color="text"
+            sx={{ userSelect: "none" }}
+            {...subtitleProps}
+          >
             {subtitle}
           </Text>
         ) : null}

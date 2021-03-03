@@ -13,7 +13,7 @@ export const Label = forwardRef((props, ref) => (
       fontFamily: "body",
       fontSize: ["xs"],
       fontWeight: "normal",
-      lineHeight: "default",
+      lineHeight: "1.185",
     }}
   />
 ));

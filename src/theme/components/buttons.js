@@ -19,9 +19,9 @@ export const buttons = {
     borderColor: "currentColor",
   },
   plain: {
-    bg: "none",
+    background: "none",
     color: "inherit",
-    display: "inline",
+    display: "inline-block",
     lineHeight: "inherit",
     px: 0,
     py: 0,

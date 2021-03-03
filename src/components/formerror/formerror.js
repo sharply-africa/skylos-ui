@@ -21,7 +21,7 @@ export const FormError = forwardRef((props, ref) => {
         borderRadius: "base",
         display: "flex",
         px: 2,
-        py: 2,
+        py: "1px",
       }}
       {...props}
     >

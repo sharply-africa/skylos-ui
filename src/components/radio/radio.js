@@ -33,6 +33,7 @@ export const Radio = forwardRef((props, ref) => {
       >
         <Box
           __css={{
+            alignItems: !!subtitle ? "center" : "flex-start",
             backgroundColor: "primary",
             borderRadius: "base",
             height: "100%",
@@ -45,13 +46,23 @@ export const Radio = forwardRef((props, ref) => {
 
       <Stack spacing={1}>
         {title ? (
-          <Text fontSize="xs" color="heading" {...titleProps}>
+          <Text
+            fontSize="xs"
+            color="heading"
+            sx={{ userSelect: "none" }}
+            {...titleProps}
+          >
             {title}
           </Text>
         ) : null}
 
         {subtitle ? (
-          <Text fontSize="xxs" color="text" {...subtitleProps}>
+          <Text
+            fontSize="xxs"
+            color="text"
+            sx={{ userSelect: "none" }}
+            {...subtitleProps}
+          >
             {subtitle}
           </Text>
         ) : null}
