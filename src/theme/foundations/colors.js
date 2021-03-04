@@ -1,13 +1,17 @@
 export const colors = {
   background: "#F1FAF9",
   black: "#000000",
+  brown: "#C3764B",
   current: "currentColor",
+  cyan: "#3393C9",
+  green: "#4BC3BC",
   heading: "#2C2727",
   primary: "#6041E0",
   primaryLight: "#EDE8FE",
   text: "#757171",
   transparent: "transparent",
   white: "#ffffff",
+  yellow: "#FFC107",
 
   red: {
     50: "#FFD4D4",

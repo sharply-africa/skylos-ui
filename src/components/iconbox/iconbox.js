@@ -16,7 +16,7 @@ export const IconBox = forwardRef((props, ref) => {
       __css={{
         alignItems: "center",
         backgroundColor: "primaryLight",
-        borderRadius: "base",
+        borderRadius: "10px",
         height: "6.6rem",
         justifyContent: "center",
         px: 2,
