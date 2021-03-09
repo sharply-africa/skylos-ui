@@ -1,11 +1,11 @@
 import React from "react";
 import Input from "react-tagsinput";
-import "react-tagsinput/react-tagsinput.css";
 import styled from "@emotion/styled";
 import { Box } from "system";
 
 const Wrapper = styled(Box)`
   .react-tagsinput {
+    background-color: ${({ theme }) => theme.colors.white};
     border: 1px solid #e7ece8;
     border-radius: 0.4rem;
     padding-left: 1.6rem;
@@ -18,9 +18,9 @@ const Wrapper = styled(Box)`
     border-radius: 500px;
     border: none;
     color: ${({ theme }) => theme.colors.heading};
-    font-size: ${({ theme }) => theme.fontSizes.sm};
     display: inline-flex;
     font-family: ${({ theme }) => theme.fonts.body};
+    font-size: ${({ theme }) => theme.fontSizes.sm};
     margin-bottom: 0.4rem;
     margin-right: 1.6rem;
     padding: 0.4rem 0.4rem 0.4rem 1.6rem;
@@ -63,6 +63,9 @@ const Wrapper = styled(Box)`
     color: ${({ theme }) => theme.colors.heading};
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: ${({ theme }) => theme.fontSizes.sm};
+    margin-bottom: 0.6rem;
+    margin-top: 1px;
+    outline: none;
     padding: 0.8rem 0.4rem;
 
     &:placholder {
