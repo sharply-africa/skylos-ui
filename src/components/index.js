@@ -13,5 +13,6 @@ export * from "./spacer";
 export * from "./spinner";
 export * from "./stack";
 export * from "./switch";
+export * from "./tagsinput";
 export * from "./text";
 export * from "./textarea";

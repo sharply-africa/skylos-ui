@@ -37,6 +37,7 @@ export const Badge = ({ alpha, children, color, text, variant, ...props }) => {
         borderRadius: "full",
         display: "inline-block",
         px: 2,
+        py: 1,
       }}
     >
       {children || (
