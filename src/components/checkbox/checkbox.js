@@ -8,6 +8,7 @@ export const Checkbox = forwardRef((props, ref) => {
   const {
     active,
     icon,
+    onChange = () => {},
     size = "1.6rem",
     subtitle,
     subtitleProps = {},
@@ -16,7 +17,13 @@ export const Checkbox = forwardRef((props, ref) => {
   } = props;
 
   return (
-    <Stack direction="row" spacing={2} ref={ref} {...props}>
+    <Stack
+      direction="row"
+      onClick={() => onChange(!active)}
+      ref={ref}
+      spacing={2}
+      {...props}
+    >
       <Box
         __css={{
           alignItems: !!subtitle ? "center" : "flex-start",

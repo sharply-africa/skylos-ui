@@ -6,6 +6,7 @@ import { Text } from "../text";
 export const Radio = forwardRef((props, ref) => {
   const {
     active,
+    onChange = () => {},
     size = "1.6rem",
     subtitle,
     subtitleProps = {},
@@ -14,7 +15,13 @@ export const Radio = forwardRef((props, ref) => {
   } = props;
 
   return (
-    <Stack direction="row" spacing={2} ref={ref} {...props}>
+    <Stack
+      direction="row"
+      onClick={() => onChange(!active)}
+      ref={ref}
+      spacing={2}
+      {...props}
+    >
       <Box
         __css={{
           alignItems: "center",
