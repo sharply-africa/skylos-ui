@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 import { Box } from "system";
 import { ReactComponent as ArrowLeft } from "icons/arrow-left.svg";
 import { Text } from "../text";
+import { Card } from "../card";
 
 export const MenuCard = forwardRef((props, ref) => {
   const {
@@ -14,20 +15,7 @@ export const MenuCard = forwardRef((props, ref) => {
   } = props;
 
   return (
-    <Box
-      ref={ref}
-      {...rest}
-      __css={{
-        alignItems: "center",
-        bg: "white",
-        borderRadius: "lg",
-        boxShadow: "0px 4px 4px #F1FAF9",
-        cursor: "pointer",
-        display: "flex",
-        px: 4,
-        py: 2,
-      }}
-    >
+    <Card ref={ref} {...rest}>
       {icon ? (
         <Box
           {...iconProps}
@@ -57,6 +45,6 @@ export const MenuCard = forwardRef((props, ref) => {
           </Box>
         </Box>
       )}
-    </Box>
+    </Card>
   );
 });
