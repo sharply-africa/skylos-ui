@@ -18,9 +18,13 @@ export const Input = forwardRef((props, ref) => (
       fontSize: ["sm"],
       fontWeight: "normal",
       lineHeight: "default",
+      outline: "none",
       px: 4,
       py: 3,
       width: "100%",
+      "&:focus": {
+        borderColor: "primary",
+      },
       "&:placholder": {
         color: "#C4C4C4",
       },

@@ -19,8 +19,12 @@ export const Textarea = forwardRef((props, ref) => (
       fontSize: ["sm"],
       fontWeight: "normal",
       lineHeight: "default",
+      outline: "none",
       px: 4,
       py: 3,
+      "&:focus": {
+        borderColor: "primary",
+      },
       width: "100%",
       "&:placholder": {
         color: "#C4C4C4",

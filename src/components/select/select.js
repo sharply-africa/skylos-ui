@@ -24,6 +24,7 @@ export const Select = forwardRef((props, ref) => (
       fontSize: ["sm"],
       fontWeight: "normal",
       lineHeight: "default",
+      outline: "none",
       px: 4,
       py: 3,
       width: "100%",
@@ -34,7 +35,9 @@ export const Select = forwardRef((props, ref) => (
             pointerEvents: "none",
           }
         : {}),
-
+      "&:focus": {
+        borderColor: "primary",
+      },
       "&:placholder": {
         color: "#C4C4C4",
       },
