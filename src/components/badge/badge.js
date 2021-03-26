@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, forwardRef } from "react";
 import { useTheme } from "@emotion/react";
 import { Box } from "system";
 import tinycolor from "tinycolor2";
@@ -11,43 +11,46 @@ const VARIANTS = {
   success: "#4BC3BC",
 };
 
-export const Badge = ({ alpha, children, color, text, variant, ...props }) => {
-  const [bg, setBg] = useState("");
+export const Badge = forwardRef(
+  ({ alpha, children, color, text, variant, ...props }, ref) => {
+    const [bg, setBg] = useState("");
 
-  const theme = useTheme();
-  const themeColor = useMemo(() => {
-    if (color) {
-      return theme.colors[color] || color;
-    } else {
-      return VARIANTS[variant];
-    }
-  }, [color, variant, theme.colors]);
+    const theme = useTheme();
+    const themeColor = useMemo(() => {
+      if (color) {
+        return theme.colors[color] || color;
+      } else {
+        return VARIANTS[variant];
+      }
+    }, [color, variant, theme.colors]);
 
-  useEffect(() => {
-    const newTinyColor = tinycolor(themeColor);
-    newTinyColor.setAlpha(alpha);
-    setBg(newTinyColor.toRgbString());
-  }, [alpha, color, themeColor]);
+    useEffect(() => {
+      const newTinyColor = tinycolor(themeColor);
+      newTinyColor.setAlpha(alpha);
+      setBg(newTinyColor.toRgbString());
+    }, [alpha, color, themeColor]);
 
-  return (
-    <Box
-      {...props}
-      __css={{
-        bg,
-        borderRadius: "full",
-        display: "inline-block",
-        px: 2,
-        py: 1,
-      }}
-    >
-      {children || (
-        <Text fontSize="xs" color={themeColor}>
-          {text}
-        </Text>
-      )}
-    </Box>
-  );
-};
+    return (
+      <Box
+        ref={ref}
+        {...props}
+        __css={{
+          bg,
+          borderRadius: "full",
+          display: "inline-block",
+          px: 2,
+          py: 1,
+        }}
+      >
+        {children || (
+          <Text fontSize="xs" color={themeColor}>
+            {text}
+          </Text>
+        )}
+      </Box>
+    );
+  }
+);
 
 Badge.defaultProps = {
   alpha: 0.25,

@@ -7,6 +7,7 @@ export * from "./heading";
 export * from "./iconbox";
 export * from "./input";
 export * from "./label";
+export * from "./menucard";
 export * from "./radio";
 export * from "./select";
 export * from "./spacer";
