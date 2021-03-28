@@ -15,7 +15,7 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["success", "error", "pending", "info"],
+        options: ["success", "error", "pending", "primary"],
       },
     },
   },

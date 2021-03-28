@@ -6,7 +6,7 @@ import { Text } from "../text";
 
 const VARIANTS = {
   error: "#E47A7A",
-  info: "#6041E0",
+  primary: "var(--primary)",
   pending: "#E1A300",
   success: "#4BC3BC",
 };
@@ -24,8 +24,21 @@ export const Badge = forwardRef(
       }
     }, [color, variant, theme.colors]);
 
+    const getPropName = (prop) => {
+      return prop.replace("var(", "").replace(")", "");
+    };
+
     useEffect(() => {
-      const newTinyColor = tinycolor(themeColor);
+      const root = document.querySelector(":root");
+      const rs = getComputedStyle(root);
+
+      const propName = getPropName(themeColor);
+
+      const hexColor = themeColor.startsWith("var")
+        ? rs.getPropertyValue(propName)
+        : themeColor;
+
+      const newTinyColor = tinycolor(hexColor);
       newTinyColor.setAlpha(alpha);
       setBg(newTinyColor.toRgbString());
     }, [alpha, color, themeColor]);
