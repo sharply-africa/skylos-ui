@@ -1,3 +1,11 @@
+const text = {
+  color: "text",
+  fontFamily: "body",
+  fontSize: ["sm"],
+  fontWeight: "normal",
+  lineHeight: "1.6",
+};
+
 export const typography = {
   heading: {
     color: "heading",
@@ -7,11 +15,12 @@ export const typography = {
     lineHeight: "1.185",
   },
   text: {
-    color: "text",
-    fontFamily: "body",
-    fontSize: ["sm"],
-    fontWeight: "normal",
-    lineHeight: "1.6",
+    ...text,
+  },
+  thickText: {
+    ...text,
+    color: "heading",
+    fontWeight: "medium",
   },
   errorText: {
     color: "red.300",
