@@ -4,6 +4,11 @@ import * as React from "react";
 export const CSSReset = () => (
   <Global
     styles={`
+      :root {
+        --primary: #6041E0;
+        --background: #F1FAF9;
+      }
+
       html {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { ThemeProvider } from "@emotion/react";
+import merge from "lodash.merge";
 import CSSReset from "css-reset";
 import defaultTheme from "theme";
 
@@ -19,9 +20,10 @@ export const SkylosProvider = (props) => {
   const { children, resetCSS = true, theme = defaultTheme } = props;
   const [customTheme, setCustomTheme] = React.useState({ ...theme });
 
-  const updateTheme = React.useCallback((newTheme = {}) => {
-    setCustomTheme((v) => ({ ...v, ...newTheme }));
-  }, []);
+  const updateTheme = React.useCallback(
+    (newTheme = {}) => setCustomTheme((v) => merge(v, newTheme)),
+    []
+  );
 
   const value = React.useMemo(
     () => ({
