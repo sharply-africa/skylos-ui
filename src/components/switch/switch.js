@@ -33,9 +33,9 @@ export const Switch = forwardRef((props, ref) => {
   return (
     <Stack
       direction="row"
-      spacing={2}
-      ref={ref}
       onClick={() => onChange(!active)}
+      ref={ref}
+      spacing={2}
       {...props}
     >
       <Box

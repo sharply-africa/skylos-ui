@@ -11,6 +11,7 @@ export default {
     inactiveBackgroundColor: {
       control: "color",
     },
+    onChange: { action: "onChange", control: null, defaultValue: null },
   },
 };
 

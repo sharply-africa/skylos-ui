@@ -39,7 +39,7 @@ export const Button = forwardRef((props, ref) => {
   const wrapperWithIconStyle =
     leftIcon || rightIcon || defaultRightIcon
       ? {
-          justifyContent: "space-between",
+          justifyContent: isLoading ? "center" : "space-between",
         }
       : {};
 
@@ -88,7 +88,6 @@ export const Button = forwardRef((props, ref) => {
         transition: "all 250ms",
         userSelect: "none",
         width: props.isFullWidth ? "100%" : "auto",
-        ...(isLoading ? { justifyContent: "center" } : {}),
       }}
       variant={variant}
       {...wrapperWithIconStyle}
