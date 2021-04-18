@@ -88,6 +88,7 @@ export const Button = forwardRef((props, ref) => {
         transition: "all 250ms",
         userSelect: "none",
         width: props.isFullWidth ? "100%" : "auto",
+        ...(isLoading ? { justifyContent: "center" } : {}),
       }}
       variant={variant}
       {...wrapperWithIconStyle}

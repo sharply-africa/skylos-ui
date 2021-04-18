@@ -9,6 +9,7 @@ export const Switch = forwardRef((props, ref) => {
     active,
     activeBackgroundColor = "#6041E0",
     inactiveBackgroundColor = "#C4C4C4",
+    onChange = () => {},
     subtitle,
     subtitleProps = {},
     title,
@@ -30,7 +31,13 @@ export const Switch = forwardRef((props, ref) => {
   }, [trackGap]);
 
   return (
-    <Stack direction="row" spacing={2} ref={ref} {...props}>
+    <Stack
+      direction="row"
+      spacing={2}
+      ref={ref}
+      onClick={() => onChange(!active)}
+      {...props}
+    >
       <Box
         ref={trackRef}
         __css={{
