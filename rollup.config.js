@@ -2,6 +2,7 @@ import path from "path";
 import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import commonjs from "@rollup/plugin-commonjs";
+import postcss from "rollup-plugin-postcss";
 import external from "rollup-plugin-peer-deps-external";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import image from "@rollup/plugin-image";
@@ -23,6 +24,10 @@ export default {
   ],
   plugins: [
     external(),
+    postcss({
+      minimize: true,
+      extensions: [".css", ".scss"],
+    }),
     alias({
       entries: [
         { find: "components", replacement: `${srcDir}/components` },
