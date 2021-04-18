@@ -2,10 +2,9 @@ import * as React from "react";
 import { Slide, ToastContainer } from "react-toastify";
 import { ThemeProvider } from "@emotion/react";
 import merge from "lodash.merge";
-import ToastReset from "src/toast-reset";
 import CSSReset from "css-reset";
+import ToastReset from "toast-reset";
 import defaultTheme from "theme";
-import "react-toastify/dist/ReactToastify.css";
 
 export const SkylosContext = React.createContext();
 
@@ -42,7 +41,7 @@ export const SkylosProvider = (props) => {
         {resetCSS && <CSSReset />}
         {children}
         <ToastContainer
-          autoClose={50000000}
+          autoClose={5000}
           closeOnClick
           draggable
           hideProgressBar

@@ -7,7 +7,7 @@ const getPropName = (prop) => {
 };
 
 const getColor = (color) => {
-  if (color) {
+  if (typeof window !== "undefined" && color) {
     const root = document.querySelector(":root");
     const rs = getComputedStyle(root);
     const propName = getPropName(color);
@@ -19,6 +19,7 @@ const getColor = (color) => {
     newTinyColor.lighten(30);
     return { color, background: newTinyColor.toHexString() };
   }
+  return { color, background: "" };
 };
 
 export const ToastReset = () => {
@@ -33,10 +34,10 @@ export const ToastReset = () => {
 
         .Toastify__toast {
           align-items: center;
-          background: ${getColor("var(--primary)").background};
+          background: ${getColor("var(--primary)")?.background};
           border-radius: 10px;
           box-shadow: none;
-          color: ${getColor("var(--primary)").color};
+          color: ${getColor("var(--primary)")?.color};
           display: inline-flex;
           min-height: 5rem;
           min-width: 27.5rem;
