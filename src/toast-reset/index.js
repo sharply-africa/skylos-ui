@@ -22,7 +22,7 @@ const getColor = (color) => {
   return { color, background: "" };
 };
 
-export const ToastReset = () => {
+const ToastReset = () => {
   return (
     <Global
       styles={`
