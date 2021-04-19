@@ -15,7 +15,7 @@ export const getColorHex = (color) => {
 
     const newTinyColor = tinycolor(hexColor);
     newTinyColor.lighten(30);
-    return { color: newTinyColor.toHexString() };
+    return newTinyColor.toHexString();
   }
-  return { color };
+  return color;
 };
