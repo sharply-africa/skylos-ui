@@ -1,14 +1,16 @@
 import React, { useEffect, useMemo, useState, forwardRef } from "react";
+import PropTypes from "prop-types";
 import { useTheme } from "@emotion/react";
 import { Box } from "system";
 import tinycolor from "tinycolor2";
 import { Text } from "../text";
 
 const VARIANTS = {
+  default: "#0988FD",
   error: "#E47A7A",
-  primary: "var(--primary)",
-  pending: "#E1A300",
+  info: "#07AFC6",
   success: "#4BC3BC",
+  warning: "#E1A300",
 };
 
 export const Badge = forwardRef(
@@ -64,6 +66,10 @@ export const Badge = forwardRef(
     );
   }
 );
+
+Badge.propTypes = {
+  variant: PropTypes.oneOf(["default", "error", "info", "success", "warning"]),
+};
 
 Badge.defaultProps = {
   alpha: 0.25,
