@@ -7,6 +7,7 @@ import { Text } from "../text";
 
 const VARIANTS = {
   default: "#0988FD",
+  primary: "var(--primary)",
   error: "#E47A7A",
   info: "#07AFC6",
   success: "#4BC3BC",
@@ -68,7 +69,14 @@ export const Badge = forwardRef(
 );
 
 Badge.propTypes = {
-  variant: PropTypes.oneOf(["default", "error", "info", "success", "warning"]),
+  variant: PropTypes.oneOf([
+    "default",
+    "primary",
+    "error",
+    "info",
+    "success",
+    "warning",
+  ]),
 };
 
 Badge.defaultProps = {
