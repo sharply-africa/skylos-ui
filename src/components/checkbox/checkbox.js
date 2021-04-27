@@ -3,15 +3,18 @@ import { Box } from "system";
 import { ReactComponent as CheckmarkIcon } from "icons/checkmark.svg";
 import { Stack } from "../stack";
 import { Text } from "../text";
+import { Spinner } from "../spinner";
 
 export const Checkbox = forwardRef((props, ref) => {
   const {
     active,
     icon,
+    isLoading = false,
     onChange = () => {},
     size = "1.6rem",
     subtitle,
     subtitleProps = {},
+    sx = {},
     title,
     titleProps = {},
   } = props;
@@ -22,40 +25,49 @@ export const Checkbox = forwardRef((props, ref) => {
       onClick={() => onChange(!active)}
       ref={ref}
       spacing={2}
+      sx={{
+        pointerEvents: isLoading ? "none" : "auto",
+        ...(!subtitle ? { alignItems: "center" } : {}),
+        ...sx,
+      }}
       {...props}
     >
-      <Box
-        __css={{
-          alignItems: !!subtitle ? "center" : "flex-start",
-          backgroundColor: "white",
-          borderRadius: "base",
-          cursor: "pointer",
-          display: "flex",
-          height: size,
-          position: "relative",
-          width: size,
-        }}
-      >
+      {isLoading ? (
+        <Spinner size={size} />
+      ) : (
         <Box
           __css={{
-            alignItems: "center",
-            backgroundColor: "primary",
+            alignItems: !!subtitle ? "center" : "flex-start",
+            backgroundColor: "white",
             borderRadius: "base",
+            cursor: "pointer",
             display: "flex",
             height: size,
-            justifyContent: "center",
-            left: 0,
-            opacity: active ? 1 : 0,
-            padding: "2px",
-            position: "absolute",
-            top: 0,
-            transition: "all 0.2s",
+            position: "relative",
             width: size,
           }}
         >
-          {icon || <CheckmarkIcon />}
+          <Box
+            __css={{
+              alignItems: "center",
+              backgroundColor: "primary",
+              borderRadius: "base",
+              display: "flex",
+              height: size,
+              justifyContent: "center",
+              left: 0,
+              opacity: active ? 1 : 0,
+              padding: "2px",
+              position: "absolute",
+              top: 0,
+              transition: "all 0.2s",
+              width: size,
+            }}
+          >
+            {icon || <CheckmarkIcon />}
+          </Box>
         </Box>
-      </Box>
+      )}
 
       <Stack spacing={1}>
         {title ? (

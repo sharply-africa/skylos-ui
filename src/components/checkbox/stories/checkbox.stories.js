@@ -10,6 +10,7 @@ export const Checkbox = (args) => <CheckboxComponent {...args} />;
 
 Checkbox.args = {
   active: false,
-  title: "Label",
+  isLoading: false,
   subtitle: "Lorem ipsum dolor sit amet",
+  title: "Label",
 };

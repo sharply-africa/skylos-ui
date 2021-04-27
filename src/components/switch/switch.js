@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, forwardRef } from "react";
-
 import { Box } from "system";
+import { Spinner } from "../spinner";
 import { Stack } from "../stack";
 import { Text } from "../text";
 
@@ -9,9 +9,11 @@ export const Switch = forwardRef((props, ref) => {
     active,
     activeBackgroundColor = "#6041E0",
     inactiveBackgroundColor = "#C4C4C4",
+    isLoading = false,
     onChange = () => {},
     subtitle,
     subtitleProps = {},
+    sx = {},
     title,
     titleProps = {},
     trackGap = 3,
@@ -36,40 +38,49 @@ export const Switch = forwardRef((props, ref) => {
       onClick={() => onChange(!active)}
       ref={ref}
       spacing={2}
+      sx={{
+        pointerEvents: isLoading ? "none" : "auto",
+        ...(!subtitle ? { alignItems: "center" } : {}),
+        ...sx,
+      }}
       {...props}
     >
-      <Box
-        ref={trackRef}
-        __css={{
-          backgroundColor: active
-            ? activeBackgroundColor
-            : inactiveBackgroundColor,
-          borderRadius: "full",
-          cursor: "pointer",
-          display: "flex",
-          position: "relative",
-          height: trackHeight,
-          width: trackWidth,
-          px: `${trackGap}px`,
-          py: `${trackGap}px`,
-        }}
-      >
+      {isLoading ? (
+        <Spinner size="1.6rem" />
+      ) : (
         <Box
+          ref={trackRef}
           __css={{
-            backgroundColor: "white",
-            borderRadius: "50%",
-            height: thumbWidth,
-            left: !active
-              ? `${trackGap}px`
-              : `${trackClientWidth - trackGap - thumbWidth}px`,
-            position: "absolute",
-            top: "50%",
-            transform: "translateY(-50%)",
-            transition: "all 0.2s",
-            width: thumbWidth,
+            backgroundColor: active
+              ? activeBackgroundColor
+              : inactiveBackgroundColor,
+            borderRadius: "full",
+            cursor: "pointer",
+            display: "flex",
+            position: "relative",
+            height: trackHeight,
+            width: trackWidth,
+            px: `${trackGap}px`,
+            py: `${trackGap}px`,
           }}
-        />
-      </Box>
+        >
+          <Box
+            __css={{
+              backgroundColor: "white",
+              borderRadius: "50%",
+              height: thumbWidth,
+              left: !active
+                ? `${trackGap}px`
+                : `${trackClientWidth - trackGap - thumbWidth}px`,
+              position: "absolute",
+              top: "50%",
+              transform: "translateY(-50%)",
+              transition: "all 0.2s",
+              width: thumbWidth,
+            }}
+          />
+        </Box>
+      )}
 
       <Stack spacing={1}>
         {title ? (

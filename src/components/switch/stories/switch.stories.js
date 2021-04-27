@@ -19,6 +19,7 @@ export const Switch = (args) => <SwitchComponent {...args} />;
 
 Switch.args = {
   active: false,
-  title: "Label",
+  isLoading: false,
   subtitle: "Lorem ipsum dolor sit amet",
+  title: "Label",
 };

@@ -10,6 +10,7 @@ export const Radio = (args) => <RadioComponent {...args} />;
 
 Radio.args = {
   active: false,
-  title: "Label",
+  isLoading: false,
   subtitle: "Lorem ipsum dolor sit amet",
+  title: "Label",
 };

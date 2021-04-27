@@ -15,7 +15,7 @@ export const Spinner = forwardRef((props, ref) => {
   const {
     color,
     emptyColor = "transparent",
-    size = 2.5,
+    size = "2.5rem",
     speed = "0.45s",
     styles,
     thickness = "2px",
@@ -23,6 +23,7 @@ export const Spinner = forwardRef((props, ref) => {
   } = props;
 
   const spinnerStyles = {
+    animation: `${spin} ${speed} linear infinite`,
     borderBottomColor: emptyColor,
     borderColor: "currentColor",
     borderLeftColor: emptyColor,
@@ -31,8 +32,8 @@ export const Spinner = forwardRef((props, ref) => {
     borderWidth: thickness,
     color,
     display: "inline-block",
-    animation: `${spin} ${speed} linear infinite`,
-    padding: size,
+    height: size,
+    width: size,
     ...styles,
   };
 
