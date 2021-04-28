@@ -1,6 +1,6 @@
-export * from "./card";
 export * from "./badge";
 export * from "./button";
+export * from "./card";
 export * from "./checkbox";
 export * from "./formerror";
 export * from "./formgroup";
@@ -9,6 +9,7 @@ export * from "./iconbox";
 export * from "./input";
 export * from "./label";
 export * from "./menucard";
+export * from "./pagination";
 export * from "./radio";
 export * from "./select";
 export * from "./spacer";
