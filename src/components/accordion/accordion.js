@@ -44,9 +44,9 @@ export const Accordion = forwardRef(
         ref={ref}
         {...rest}
         __css={{
+          ...(!isOpen ? { overflow: "hidden" } : {}),
           bg: "white",
           borderRadius: "lg",
-          overflow: "hidden",
           userSelect: "none",
         }}
       >

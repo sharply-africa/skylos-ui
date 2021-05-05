@@ -20,10 +20,18 @@ export const AccordionHeader = forwardRef(({ children, ...props }, ref) => {
         p: 4,
       }}
     >
-      <Box>{children}</Box>
+      <Box
+        __css={{
+          flex: 1,
+        }}
+      >
+        {children}
+      </Box>
 
       <Box
         __css={{
+          flexShrink: 0,
+          ml: 2,
           transform: isOpen ? "rotate(-180deg)" : "",
           transition: "all 0.2s",
         }}
