@@ -39,12 +39,12 @@ const Control = styled(Flex)`
 `;
 
 export const Pagination = forwardRef(
-  ({ initialPage = 1, onChange, total }, ref) => {
+  ({ initialPage = 1, onChange = () => {}, total }, ref) => {
     const [page, setPage] = useState(initialPage);
 
     useEffect(() => {
       onChange(page);
-    }, [onChange, page]);
+    }, [page]);
 
     const onSelectChange = (e) => {
       setPage(+e.target.value);
@@ -58,6 +58,8 @@ export const Pagination = forwardRef(
       if (page < total) setPage((v) => +v + 1);
     };
 
+    if (!total) return null;
+
     return (
       <Wrapper ref={ref}>
         <Flex alignItems="center">
@@ -68,12 +70,12 @@ export const Pagination = forwardRef(
             py="0.9rem"
             value={page}
           >
-            <option value={1}>1</option>
-
             {[...Array(total + 1).keys()]
-              .filter((x) => x > 1)
+              .filter((x) => x > 0)
               .map((x) => (
-                <option value={x}>{x}</option>
+                <option key={x} value={x}>
+                  {x}
+                </option>
               ))}
           </Select>
 
