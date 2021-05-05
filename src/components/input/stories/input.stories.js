@@ -11,5 +11,6 @@ export const Input = (args) => (
 );
 
 Input.args = {
+  type: "text",
   value: "Hello world",
 };
