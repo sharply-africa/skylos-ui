@@ -4,7 +4,7 @@ import { Accordion as AccordionComponent } from "../index";
 export default {
   title: "Components/Base/Accordion",
   component: AccordionComponent,
-  argsTypes: {
+  argTypes: {
     onChange: { action: "onChange", control: null, defaultValue: null },
   },
 };

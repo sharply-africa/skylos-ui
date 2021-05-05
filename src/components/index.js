@@ -3,6 +3,7 @@ export * from "./badge";
 export * from "./button";
 export * from "./card";
 export * from "./checkbox";
+export * from "./datepicker";
 export * from "./formerror";
 export * from "./formgroup";
 export * from "./heading";
