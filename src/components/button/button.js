@@ -98,7 +98,7 @@ export const Button = forwardRef((props, ref) => {
           {leftIcon}
         </IconWrapper>
       )}
-      {isLoading ? <Spinner size={1.5} thickness="1px" /> : children}
+      {isLoading ? <Spinner size={"1.5rem"} thickness="1px" /> : children}
       {renderRightIcon()}
     </Box>
   );
