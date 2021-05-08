@@ -6,8 +6,11 @@ export default {
   component: TagsInputComponent,
 };
 
-export const TagsInput = (args) => <TagsInputComponent {...args} />;
-
-TagsInput.args = {
-  value: ["laptop bag", "laptop"],
+export const TagsInput = () => {
+  const [items, setItems] = React.useState([]);
+  return (
+    <form>
+      <TagsInputComponent value={items} onChange={setItems} />
+    </form>
+  );
 };

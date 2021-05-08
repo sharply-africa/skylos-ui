@@ -74,15 +74,31 @@ const Wrapper = styled(Box)`
   }
 `;
 
-export const TagsInput = ({ onChange, value, wrapperProps, ...props }) => {
+export const TagsInput = ({
+  onChange,
+  value,
+  inputProps,
+  wrapperProps,
+  ...props
+}) => {
   return (
     <Wrapper {...wrapperProps}>
-      <Input onChange={onChange} value={value} {...props} />
+      <Input
+        onChange={onChange}
+        value={value}
+        inputProps={{
+          enterkeyhint: "enter",
+          placeholder: "Type and press enter",
+          ...inputProps,
+        }}
+        {...props}
+      />
     </Wrapper>
   );
 };
 
 TagsInput.defaultProps = {
+  inputProps: {},
   onChange: () => {},
   onlyUnique: true,
   value: [],
