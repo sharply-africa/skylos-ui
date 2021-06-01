@@ -19,7 +19,12 @@ export const useSkylosTheme = () => {
 };
 
 export const SkylosProvider = (props) => {
-  const { children, resetCSS = true, theme = defaultTheme } = props;
+  const {
+    children,
+    googleMapsKey,
+    resetCSS = true,
+    theme = defaultTheme,
+  } = props;
   const [customTheme, setCustomTheme] = React.useState({ ...theme });
 
   const updateTheme = React.useCallback(
@@ -31,8 +36,9 @@ export const SkylosProvider = (props) => {
     () => ({
       customTheme,
       updateTheme,
+      googleMapsKey,
     }),
-    [customTheme, updateTheme]
+    [customTheme, updateTheme, googleMapsKey]
   );
 
   return (
