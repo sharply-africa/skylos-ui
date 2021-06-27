@@ -3,12 +3,13 @@ import { Input as InputComponent } from "../input";
 
 export default {
   title: "Components/Form/Input",
-  component: InputComponent,
 };
 
-export const Input = (args) => (
+const Template = (args) => (
   <InputComponent placeholder="Enter something" {...args} />
 );
+
+export const Input = Template.bind({});
 
 Input.args = {
   type: "text",

@@ -21,7 +21,7 @@ export const useSkylosTheme = () => {
 export const SkylosProvider = (props) => {
   const {
     children,
-    googleMapsKey,
+    googleMapsKey = "",
     resetCSS = true,
     theme = defaultTheme,
   } = props;

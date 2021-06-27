@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import styled from "@emotion/styled";
 import { Box, mergeRefs } from "system";
 import PhoneInput from "react-phone-input-2";
-import { useSkylosTheme } from "dist";
+import { useSkylosTheme } from "src/system";
 import { usePlacesWidget } from "react-google-autocomplete";
 
 const PhoneInputWrapper = styled(Box)`
@@ -82,6 +82,10 @@ export const Input = forwardRef(({ onChange, type, value, ...props }, ref) => {
   const { ref: placesRef } = usePlacesWidget({
     apiKey: googleMapsKey,
     onPlaceSelected: onChange,
+    options: {
+      types: ["geocode", "establishment"],
+      componentRestrictions: { country: "ng" },
+    },
   });
 
   if (type === "phone") {
