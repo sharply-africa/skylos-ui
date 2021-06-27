@@ -1,8 +1,7 @@
 import React, { forwardRef } from "react";
 import styled from "@emotion/styled";
-import { Box, mergeRefs } from "system";
+import { Box, mergeRefs, useSkylosTheme } from "system";
 import PhoneInput from "react-phone-input-2";
-import { useSkylosTheme } from "src/system";
 import { usePlacesWidget } from "react-google-autocomplete";
 
 const PhoneInputWrapper = styled(Box)`
