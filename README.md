@@ -7,11 +7,11 @@ Skylos UI provides a set of accessible, reusable, and composable React component
 To use Skylos UI components, all you need to do is install the skylos-ui package and its peer dependencies:
 
 ```
-$ yarn add https://github.com/skyeops/skylos-ui @emotion/react @emotion/styled react-toastify react-phone-input-2 react-day-picker
+$ yarn add https://github.com/skyeops/skylos-ui @emotion/react @emotion/styled react-toastify react-phone-input-2 react-day-picker react-google-autocomplete react-tagsinput date-fns
 
 # or
 
-$ npm i https://github.com/skyeops/skylos-ui @emotion/react @emotion/styled react-toastify react-phone-input-2 react-day-picker
+$ npm i https://github.com/skyeops/skylos-ui @emotion/react @emotion/styled react-toastify react-phone-input-2 react-day-picker react-google-autocomplete react-tagsinput date-fns
 ```
 
 ## Usage
