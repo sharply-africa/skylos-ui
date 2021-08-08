@@ -106,6 +106,7 @@ export const Input = forwardRef(({ onChange, type, value, ...props }, ref) => {
     return (
       <InputComponent
         ref={mergeRefs(ref, placesRef)}
+        autoComplete="off"
         type={type}
         value={value}
         {...props}
