@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { ReactComponent as CautionIcon } from "icons/caution.svg";
+import { Box } from "system";
 import { Text } from "../text";
 import { Stack } from "../stack";
 
@@ -25,8 +26,9 @@ export const FormError = forwardRef((props, ref) => {
       }}
       {...props}
     >
-      <CautionIcon />
-
+      <Box sx={{ flexShrink: 0 }}>
+        <CautionIcon />
+      </Box>
       <Text variant="errorText">{error}</Text>
     </Stack>
   );
