@@ -80,12 +80,21 @@ export const Input = forwardRef(({ onChange, type, value, ...props }, ref) => {
 
   const { ref: placesRef } = usePlacesWidget({
     apiKey: googleMapsKey,
-    onPlaceSelected: onChange,
+    onPlaceSelected: (location) => {
+      placesRef.current.value = location?.formatted_address || "";
+      onChange(location);
+    },
     options: {
       types: ["geocode", "establishment"],
       componentRestrictions: { country: "ng" },
     },
   });
+
+  React.useEffect(() => {
+    if (!value && placesRef?.current) {
+      placesRef.current.value = "";
+    }
+  }, [value]);
 
   if (type === "phone") {
     return (
@@ -108,8 +117,13 @@ export const Input = forwardRef(({ onChange, type, value, ...props }, ref) => {
         ref={mergeRefs(ref, placesRef)}
         autoComplete="off"
         type={type}
-        value={value}
         {...props}
+        onBlur={(evt) => {
+          props.onBlur?.(evt);
+          if (!evt.target.value) {
+            onChange(null);
+          }
+        }}
       />
     );
   }
