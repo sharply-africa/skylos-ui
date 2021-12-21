@@ -39,6 +39,7 @@ export const Checkbox = forwardRef((props, ref) => {
           __css={{
             alignItems: !!subtitle ? "center" : "flex-start",
             backgroundColor: "white",
+            border: `1px solid ${active ? "transparent" : "#C4C4C4"}`,
             borderRadius: "base",
             cursor: "pointer",
             display: "flex",
