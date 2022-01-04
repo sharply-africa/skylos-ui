@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { Box, mergeRefs, useSkylosTheme } from "system";
 import PhoneInput from "react-phone-input-2";
 import { usePlacesWidget } from "react-google-autocomplete";
+import usePlacesService from "react-google-autocomplete/lib/usePlacesAutocompleteService";
 
 const PhoneInputWrapper = styled(Box)`
   .react-tel-input {
@@ -75,7 +76,10 @@ const InputComponent = forwardRef((props, ref) => (
   />
 ));
 
+const AUTOCOMPLETE_FIELDS = ["geometry.location", "formatted_address"];
+
 export const Input = forwardRef(({ onChange, type, value, ...props }, ref) => {
+  const hasSetDefaultValue = React.useRef(false);
   const { googleMapsKey } = useSkylosTheme();
 
   const { ref: placesRef } = usePlacesWidget({
@@ -87,14 +91,49 @@ export const Input = forwardRef(({ onChange, type, value, ...props }, ref) => {
     options: {
       types: ["geocode", "establishment"],
       componentRestrictions: { country: "ng" },
+      fields: AUTOCOMPLETE_FIELDS,
     },
   });
+
+  const {
+    placePredictions,
+    getPlacePredictions,
+    placesService,
+    isPlacePredictionsLoading,
+  } = usePlacesService({
+    apiKey: googleMapsKey,
+    options: {
+      types: ["address"],
+      componentRestrictions: { country: "ng" },
+    },
+  });
+
+  React.useEffect(() => {
+    if (props.defaultValue && !hasSetDefaultValue.current) {
+      placesRef.current.value = props.defaultValue;
+      getPlacePredictions({ input: props.defaultValue });
+      hasSetDefaultValue.current = true;
+    }
+  }, [props.defaultValue]);
+
+  React.useEffect(() => {
+    if (!isPlacePredictionsLoading && placePredictions.length) {
+      const { place_id } = placePredictions[0];
+
+      placesService?.getDetails(
+        { placeId: place_id, fields: AUTOCOMPLETE_FIELDS },
+        (place) => {
+          onChange(place);
+        }
+      );
+    }
+  }, [isPlacePredictionsLoading, placePredictions, placesService, onChange]);
 
   React.useEffect(() => {
     if (!value && placesRef?.current) {
       placesRef.current.value = "";
     }
-  }, [value]);
+  }, [placesRef, value]);
 
   if (type === "phone") {
     return (

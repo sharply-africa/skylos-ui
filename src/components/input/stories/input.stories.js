@@ -12,5 +12,8 @@ const Template = (args) => (
 export const Input = Template.bind({});
 
 Input.args = {
-  type: "text",
+  defaultValue: "",
+  type: "address",
+  onChange: console.log,
+  onBlur: console.log,
 };
