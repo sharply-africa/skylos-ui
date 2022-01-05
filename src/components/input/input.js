@@ -34,6 +34,11 @@ const PhoneInputWrapper = styled(Box)`
       padding-top: ${({ theme }) => theme.space[3]};
       width: 100%;
 
+      &:disabled {
+        background-color: #e7ece8;
+        opacity: 0.5;
+      }
+
       &:placholder {
         color: #c4c4c4;
       }
@@ -66,6 +71,10 @@ const InputComponent = forwardRef((props, ref) => (
       px: 4,
       py: 3,
       width: "100%",
+      "&:disabled": {
+        backgroundColor: "#E7ECE8",
+        opacity: 0.5,
+      },
       "&:focus": {
         borderColor: "primary",
       },
@@ -109,12 +118,16 @@ export const Input = forwardRef(({ onChange, type, value, ...props }, ref) => {
   });
 
   React.useEffect(() => {
-    if (props.defaultValue && !hasSetDefaultValue.current) {
+    if (
+      props.defaultValue &&
+      type === "address" &&
+      !hasSetDefaultValue.current
+    ) {
       placesRef.current.value = props.defaultValue;
       getPlacePredictions({ input: props.defaultValue });
       hasSetDefaultValue.current = true;
     }
-  }, [props.defaultValue]);
+  }, [props.defaultValue, type]);
 
   React.useEffect(() => {
     if (!isPlacePredictionsLoading && placePredictions.length) {
