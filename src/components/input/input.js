@@ -75,6 +75,10 @@ const InputComponent = forwardRef((props, ref) => (
         backgroundColor: "#E7ECE8",
         opacity: 0.5,
       },
+      "&:readonly": {
+        backgroundColor: "#E7ECE8",
+        opacity: 0.5,
+      },
       "&:focus": {
         borderColor: "primary",
       },
@@ -137,6 +141,7 @@ export const Input = forwardRef(({ onChange, type, value, ...props }, ref) => {
         { placeId: place_id, fields: AUTOCOMPLETE_FIELDS },
         (place) => {
           onChange(place);
+          hasSetDefaultValue.current = false;
         }
       );
     }
