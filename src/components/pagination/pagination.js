@@ -39,23 +39,23 @@ const Control = styled(Flex)`
 `;
 
 export const Pagination = forwardRef(
-  ({ initialPage = 1, onChange = () => {}, total }, ref) => {
-    const [page, setPage] = useState(initialPage);
-
-    useEffect(() => {
-      onChange(page);
-    }, [page]);
-
+  ({ page = 1, onChange = () => {}, total }, ref) => {
     const onSelectChange = (e) => {
-      setPage(+e.target.value);
+      const page = +e.target.value;
+
+      onChange(page);
     };
 
     const goToPrev = () => {
-      if (page > 1) setPage((v) => +v - 1);
+      if (page > 1) {
+        onChange(+page - 1);
+      }
     };
 
     const goToNext = () => {
-      if (page < total) setPage((v) => +v + 1);
+      if (page < total) {
+        onChange(+page + 1);
+      }
     };
 
     if (!total) return null;
