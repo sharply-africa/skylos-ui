@@ -5,8 +5,8 @@ import dateFnsFormat from "date-fns/format";
 import dateFnsParse from "date-fns/parse";
 import { Input } from "../input";
 
-const currentYear = new Date().getFullYear();
-const fromMonth = new Date(currentYear, 0);
+const fromMonth = new Date();
+const currentYear = fromMonth.getFullYear();
 const toMonth = new Date(currentYear - 70, 11);
 
 function YearMonthForm({ date, localeUtils, onChange }) {
@@ -57,6 +57,7 @@ function formatDate(date, format, locale) {
 export const DatePicker = ({
   onChange = () => {},
   placeholder = "yyyy-mm-dd",
+  dayPickerProps,
   ...props
 }) => {
   const [month, setMonth] = useState(fromMonth);
@@ -77,17 +78,19 @@ export const DatePicker = ({
       style={{ display: "block" }}
       dayPickerProps={{
         month,
-        fromMonth,
+        fromMonth: new Date(),
         toMonth,
-        captionElement: ({ date, localeUtils }) => (
-          <YearMonthForm
-            date={date}
-            localeUtils={localeUtils}
-            onChange={handleYearMonthChange}
-          />
-        ),
+        captionElement: ({ date, localeUtils }) => {
+          return (
+            <YearMonthForm
+              date={date}
+              localeUtils={localeUtils}
+              onChange={handleYearMonthChange}
+            />
+          );
+        },
         disabledDays: { after: new Date() },
-        ...props,
+        ...dayPickerProps,
       }}
       {...props}
       component={(props) => <Input readOnly {...props} />}

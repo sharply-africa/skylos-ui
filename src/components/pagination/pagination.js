@@ -42,7 +42,6 @@ export const Pagination = forwardRef(
   ({ page = 1, onChange = () => {}, total }, ref) => {
     const onSelectChange = (e) => {
       const page = +e.target.value;
-
       onChange(page);
     };
 

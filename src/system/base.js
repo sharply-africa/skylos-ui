@@ -22,6 +22,7 @@ export const Box = styled("div", {
     boxSizing: "border-box",
     margin: 0,
     minWidth: 0,
+    padding: 0,
   },
   base,
   variant,
